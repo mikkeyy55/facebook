@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Facebook Lite Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login to Facebook</h2>
+    <input type="text" id="email" placeholder="Email or Phone">
+    <input type="password" id="password" placeholder="Password">
+    <button class="btn-primary" onclick="checkLogin()">Login</button>
+    <div class="login-links">
+      <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+      <a href="#" onclick="showCreateAccount()">Create New Account</a>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgotPasswordModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>Reset Password</h3>
+      <input type="text" id="resetEmail" placeholder="Enter your email">
+      <button class="btn-primary" onclick="resetPassword()">Reset Password</button>
+      <button class="btn-secondary" onclick="closeModal('forgotPasswordModal')">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Create Account Modal -->
+  <div id="createAccountModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>Create New Account</h3>
+      <input type="text" id="newName" placeholder="Full Name">
+      <input type="text" id="newEmail" placeholder="Email">
+      <input type="password" id="newPassword" placeholder="Password">
+      <button class="btn-primary" onclick="createAccount()">Create Account</button>
+      <button class="btn-secondary" onclick="closeModal('createAccountModal')">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    // Set default account in cookies
+    document.cookie = "defaultEmail=Michael@gmail.com";
+    document.cookie = "defaultPassword=admin123";
+
+    function checkLogin() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      // Check against default account
+      if (email === "Michael@gmail.com" && password === "admin123") {
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = "index.html";
+        return;
+      }
+
+      // Check against stored accounts
+      const accounts = getStoredAccounts();
+      const account = accounts.find(acc => acc.email === email && acc.password === password);
+      
+      if (account) {
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = "index.html";
+      } else {
+        alert("Wrong email or password!");
+      }
+    }
+
+    function showForgotPassword() {
+      document.getElementById('forgotPasswordModal').style.display = 'flex';
+    }
+
+    function showCreateAccount() {
+      document.getElementById('createAccountModal').style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+
+    function resetPassword() {
+      const email = document.getElementById('resetEmail').value;
+      
+      // Check if email exists in stored accounts
+      const accounts = getStoredAccounts();
+      const account = accounts.find(acc => acc.email === email);
+      
+      if (account || email === "Michael@gmail.com") {
+        alert("Password reset link has been sent to your email!");
+        closeModal('forgotPasswordModal');
+      } else {
+        alert("Email not found!");
+      }
+    }
+
+    function createAccount() {
+      const name = document.getElementById('newName').value;
+      const email = document.getElementById('newEmail').value;
+      const password = document.getElementById('newPassword').value;
+
+      if (!name || !email || !password) {
+        alert("Please fill in all fields!");
+        return;
+      }
+
+      // Get existing accounts
+      const accounts = getStoredAccounts();
+      
+      // Check if email already exists
+      if (accounts.some(acc => acc.email === email) || email === "Michael@gmail.com") {
+        alert("Email already exists!");
+        return;
+      }
+
+      // Add new account
+      accounts.push({ name, email, password });
+      localStorage.setItem('accounts', JSON.stringify(accounts));
+
+      alert("Account created successfully! You can now login.");
+      closeModal('createAccountModal');
+    }
+
+    function getStoredAccounts() {
+      const accounts = localStorage.getItem('accounts');
+      return accounts ? JSON.parse(accounts) : [];
+    }
+  </script>
+
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 24px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .modal-content h3 {
+      margin: 0 0 16px 0;
+      text-align: center;
+    }
+
+    .modal-content input {
+      padding: 10px;
+      border: 1px solid var(--facebook-border);
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .btn-secondary {
+      background: #e4e6eb;
+      color: #1c1e21;
+      border: none;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: #d8dade;
+    }
+  </style>
+</body>
+</html> 

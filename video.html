@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video - Facebook Lite Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+   <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="nav-left">
+      <div class="logo-circle">
+        <span class="logo-f">f</span>
+      </div>
+      <input type="text" class="search" placeholder="Search Facebook">
+    </div>
+    <div class="nav-center">
+      <a href="index.html" class="nav-icon-link"><span class="nav-icon" title="Home">
+        <!-- Home SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M25.825 12.29l-9.5-8.5a2 2 0 0 0-2.65 0l-9.5 8.5A2 2 0 0 0 4 15h1v7a2 2 0 0 0 2 2h4v-6h4v6h4a2 2 0 0 0 2-2v-7h1a2 2 0 0 0 1.825-2.71z" fill="#65676b"/></svg>
+      </span></a>
+      <a href="video.html" class="nav-icon-link"><span class="nav-icon" title="Video">
+        <!-- Video SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="7" width="16" height="14" rx="2" fill="#65676b"/><path d="M20 11l4 3v2l-4 3v-8z" fill="#65676b"/></svg>
+      </span></a>
+      <a href="marketplace.html" class="nav-icon-link"><span class="nav-icon" title="Marketplace">
+        <!-- Marketplace SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="10" width="20" height="10" rx="2" fill="#65676b"/><path d="M7 10V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3" stroke="#65676b" stroke-width="2"/></svg>
+      </span></a>
+      <a href="groups.html" class="nav-icon-link"><span class="nav-icon" title="Groups">
+        <!-- Groups SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="9" cy="12" r="4" fill="#65676b"/><circle cx="19" cy="12" r="4" fill="#65676b"/><ellipse cx="9" cy="20" rx="7" ry="3" fill="#65676b"/></svg>
+      </span></a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-icon" title="Messenger">
+        <!-- Messenger SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#65676b" stroke-width="2" fill="none"/><path d="M8 17l4-5 4 3 4-5" stroke="#65676b" stroke-width="2" fill="none"/></svg>
+      </span>
+      <span class="nav-icon" title="Notifications">
+        <!-- Notifications SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 24a3 3 0 0 0 3-3h-6a3 3 0 0 0 3 3zm7-7V12a7 7 0 1 0-14 0v5l-2 2v1h18v-1l-2-2z" fill="#65676b"/></svg>
+      </span>
+      <div class="profile-dropdown">
+        <img src="profile.jpg" alt="Profile" class="profile-thumb nav-profile-thumb">
+        <div class="dropdown-menu">
+          <a href="profile.html" class="dropdown-item">
+            <i class="fas fa-user"></i>
+            <span>Your Profile</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+          <div class="dropdown-divider"></div>
+        <a href="login.html" class="dropdown-item logout" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Log Out</span>
+        </a>
+      </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <ul>
+      <li class="sidebar-profile">
+        <a href="profile.html">
+          <img src="profile.jpg" class="sidebar-profile-thumb">
+          <span>Michael Angelo Tamayo</span>
+        </a>
+      </li>
+      <li><a href="metaai.html" class="sidebar-link"><span class="sidebar-icon">
+        <!-- Meta AI SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="14" rx="10" ry="10" fill="#8a3ffc"/><ellipse cx="14" cy="14" rx="6" ry="6" fill="#fff"/></svg>
+      </span> Meta AI</a></li>
+      <li><a href="friends.html" class="sidebar-link"><span class="sidebar-icon">
+        <!-- Friends SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="10" cy="12" r="4" fill="#65676b"/><circle cx="18" cy="12" r="4" fill="#65676b"/><ellipse cx="10" cy="20" rx="7" ry="3" fill="#65676b"/></svg>
+      </span> Friends</a></li>
+      <li><a href="memories.html" class="sidebar-link"><span class="sidebar-icon">
+        <!-- Memories SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#65676b" stroke-width="2" fill="none"/><path d="M14 8v6l4 2" stroke="#65676b" stroke-width="2" fill="none"/></svg>
+      </span> Memories</a></li>
+      <li><a href="saved.html" class="sidebar-link"><span class="sidebar-icon">
+        <!-- Saved SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="7" y="5" width="14" height="18" rx="2" fill="#65676b"/><path d="M7 5l7 7 7-7" stroke="#fff" stroke-width="2" fill="none"/></svg>
+      </span> Saved</a></li>
+      <li><a href="groups.html" class="sidebar-link"><span class="sidebar-icon">
+        <!-- Groups SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="9" cy="14" r="4" fill="#65676b"/><circle cx="19" cy="14" r="4" fill="#65676b"/><ellipse cx="14" cy="22" rx="9" ry="3" fill="#65676b"/></svg>
+      </span> Groups</a></li>
+      <li><a href="video.html" class="sidebar-link"><span class="sidebar-icon">
+        <!-- Video SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="7" width="16" height="14" rx="2" fill="#65676b"/><path d="M20 11l4 3v2l-4 3v-8z" fill="#65676b"/></svg>
+      </span> Video</a></li>
+      <li><a href="marketplace.html" class="sidebar-link"><span class="sidebar-icon">
+        <!-- Marketplace SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="10" width="20" height="10" rx="2" fill="#65676b"/><path d="M7 10V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3" stroke="#65676b" stroke-width="2"/></svg>
+      </span> Marketplace</a></li>
+      <li class="sidebar-seemore"><span class="sidebar-icon">
+
+    </ul>
+  </aside>
+
+  <main class="main-content">
+    <section class="page-section">
+      <h2>Video Page</h2>
+      <!-- Add Video specific content here -->
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Highlight the active navigation link in the sidebar based on the current page
+    const sidebarLinks = document.querySelectorAll('.sidebar li a');
+    const currentPagePath = window.location.pathname.split('/').pop(); // Get the current filename
+
+    sidebarLinks.forEach(link => {
+      // Remove active class from all links first
+      link.classList.remove('active');
+
+      // Check if the link's href matches the current page filename
+      const linkHref = link.getAttribute('href').split('/').pop();
+
+      if (linkHref === currentPagePath) {
+          link.classList.add('active');
+      }
+    });
+
+     // Highlight the active navigation link in the top navigation bar based on the current page
+    const topNavLinks = document.querySelectorAll('.nav-center .nav-icon-link');
+    topNavLinks.forEach(link => {
+      // Remove active class from all links first
+      link.classList.remove('active');
+
+      // Check if the link's href matches the current page filename
+      const linkHref = link.getAttribute('href').split('/').pop();
+
+      if (linkHref === currentPagePath) {
+          link.classList.add('active');
+      }
+    });
+
+  </script>
+</body>
+</html> 

@@ -1,0 +1,1197 @@
+/* Facebook-inspired color palette */
+:root {
+  --facebook-blue: #1877f2;
+  --facebook-dark: #050505;
+  --facebook-gray: #f0f2f5;
+  --facebook-border: #ccd0d5;
+  --facebook-hover: #e4e6eb;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--facebook-gray);
+  margin: 0;
+  color: var(--facebook-dark);
+}
+
+/***** Top Navigation Bar Enhancements *****/
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border-bottom: 1px solid var(--facebook-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 56px;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  background: var(--facebook-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+.logo-f {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 2px;
+}
+.search {
+  border: none;
+  border-radius: 50px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  background: var(--facebook-gray);
+  outline: none;
+  transition: background 0.2s;
+  width: 260px;
+  margin-left: 4px;
+}
+.search:focus {
+  background: #fff;
+  box-shadow: 0 0 0 2px var(--facebook-blue, #1877f2);
+}
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-icon {
+  font-size: 1.6rem;
+  color: #65676b;
+  background: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.nav-icon.active, .nav-icon:active {
+  color: var(--facebook-blue);
+}
+.nav-icon.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 3px;
+  background: var(--facebook-blue);
+  border-radius: 2px 2px 0 0;
+}
+.nav-icon:hover {
+  background: var(--facebook-hover);
+  color: var(--facebook-blue);
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-profile-thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--facebook-blue);
+  margin-left: 4px;
+}
+
+/***** Sidebar Enhancements *****/
+.sidebar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 400px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.03);
+  border-right: 1px solid var(--facebook-border);
+  padding-top: 16px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px 12px 20px;
+  font-weight: bold;
+  font-size: 1.12rem;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sidebar-profile-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 24px 12px 20px;
+  border-radius: 8px;
+  margin: 0 8px 2px 8px;
+  font-size: 1.08rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  color: #050505;
+}
+.sidebar li:hover, .sidebar-profile:hover {
+  background: var(--facebook-hover);
+  color: var(--facebook-blue);
+}
+.sidebar-icon {
+  font-size: 1.5rem;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar-seemore {
+  color: #65676b;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.sidebar-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.sidebar-link:hover {
+  color: var(--facebook-blue);
+}
+
+/***** Main Content Adjustments *****/
+.main-content {
+  margin-left: 400px;
+  padding: 40px 32px;
+  min-height: 100vh;
+  background: var(--facebook-gray);
+}
+
+/* Login Box */
+.login-box {
+  max-width: 350px;
+  margin: 80px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.login-box h2 {
+  margin-bottom: 8px;
+}
+.login-box input {
+  padding: 10px;
+  border: 1px solid var(--facebook-border);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.btn-primary {
+  background: var(--facebook-blue);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 1px 4px rgba(24,119,242,0.08);
+}
+.btn-primary:hover {
+  background: #145db2;
+}
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+.login-links a {
+  color: var(--facebook-blue);
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+/* News Feed */
+.post {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  max-width: 1300px;
+  margin: 0 auto 20px auto;
+}
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.post-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--facebook-blue);
+}
+
+/* Profile */
+.cover-photo {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  margin-bottom: -90px;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover-photo:hover .cover-overlay {
+  opacity: 1;
+}
+
+.cover-edit-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #1c1e21;
+  transition: background-color 0.2s;
+}
+
+.cover-edit-btn:hover {
+  background: #fff;
+}
+
+.cover-edit-btn i {
+  color: #65676b;
+}
+
+.profile-info {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 32px 20px 20px 20px;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-photo-container {
+  position: relative;
+  margin-top: -100px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.profile-photo {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  border: 4px solid var(--facebook-blue);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  object-fit: cover;
+}
+
+.profile-photo-camera {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  background: #e4e6eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid var(--facebook-border);
+}
+
+.profile-photo-camera i {
+  color: #65676b;
+  font-size: 1rem;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+.profile-info h2 {
+  margin: 0 0 4px 0;
+}
+
+.profile-info p {
+  margin: 0;
+  color: #555;
+}
+
+/* Profile Navigation */
+.profile-nav {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.profile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  border-bottom: 1px solid var(--facebook-border);
+}
+
+.profile-nav li {
+  margin-right: 24px; /* Space between links */
+}
+
+.profile-nav-link {
+  display: block;
+  padding: 16px 0; /* Vertical padding */
+  text-decoration: none;
+  color: #65676b; /* Default color */
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.profile-nav-link:hover {
+  color: var(--facebook-blue);
+}
+
+.profile-nav-link.active {
+  color: var(--facebook-blue); /* Active color */
+}
+
+.profile-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Position the underline at the bottom */
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--facebook-blue); /* Underline color */
+  border-radius: 2px 2px 0 0;
+}
+
+.profile-section {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.profile-section h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.about-section p {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.about-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-section li {
+  margin-bottom: 10px; /* Space between list items */
+  color: #1c1e21; /* Text color */
+  display: flex;
+  align-items: center;
+}
+
+.about-section li i {
+  margin-right: 12px; /* Space between icon and text */
+  color: #65676b; /* Icon color */
+  width: 20px; /* Fixed width for icons */
+  text-align: center;
+}
+
+.about-section li a {
+  text-decoration: none;
+  color: var(--facebook-blue); /* Link color */
+}
+
+.about-section li a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.about-section .mobile-label {
+  font-size: 0.9rem;
+  color: #65676b;
+  margin-left: 8px;
+}
+
+.about-section .btn-secondary {
+  background: #e4e6eb;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.about-section .btn-secondary:hover {
+  background: #d8dade;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.photo-thumb {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.photo-thumb:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.photos-section {
+  padding: 20px;
+}
+
+.photos-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: var(--facebook-dark);
+}
+
+.friends-preview {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 16px 20px;
+}
+.friend-list {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.friend-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--facebook-blue);
+}
+
+/* Marketplace */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+  padding: 0 16px;
+}
+.market-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 16px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.market-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.item-thumb {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.item-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: var(--facebook-dark);
+}
+.item-price {
+  color: var(--facebook-blue);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* News Feed Enhancements */
+.create-post {
+  margin-bottom: 24px;
+}
+
+.post-input {
+  flex: 1;
+  border: none;
+  background: var(--facebook-gray);
+  border-radius: 20px;
+  padding: 12px 16px;
+  margin-left: 12px;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.post-input:focus {
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 2px var(--facebook-blue);
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 12px;
+  border-top: 1px solid var(--facebook-border);
+  margin-top: 12px;
+}
+
+.post-action-btn {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #65676b;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.post-action-btn:hover {
+  background: var(--facebook-hover);
+}
+
+.post-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+}
+
+.post-author {
+  font-weight: 600;
+  color: var(--facebook-dark);
+}
+
+.post-time {
+  font-size: 0.9rem;
+  color: #65676b;
+}
+
+.post-content {
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 800px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+.post-stats {
+  display: flex;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--facebook-border);
+  color: #65676b;
+  font-size: 0.95rem;
+}
+
+.post-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.post-interactions {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 8px;
+}
+
+.interaction-btn {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #65676b;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.interaction-btn:hover {
+  background: var(--facebook-hover);
+}
+
+/***** Responsive Adjustments *****/
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 300px;
+  }
+  
+  .main-content {
+    margin-left: 300px;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+  
+  .market-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  
+  .market-item {
+    width: 100%;
+  }
+  
+  .item-thumb {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 240px;
+  }
+  
+  .main-content {
+    margin-left: 240px;
+  }
+  
+  .nav-center {
+    gap: 16px;
+  }
+  
+  .search {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 72px;
+    padding: 12px 8px;
+  }
+  
+  .sidebar li span:not(.sidebar-icon),
+  .sidebar-profile span {
+    display: none;
+  }
+  
+  .main-content {
+    margin-left: 72px;
+    padding: 16px;
+  }
+  
+  .top-nav {
+    padding: 0 16px;
+  }
+  
+  .nav-center {
+    gap: 12px;
+  }
+  
+  .search {
+    width: 160px;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  
+  .photo-thumb {
+    height: 150px;
+  }
+  
+  .market-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  
+  .item-thumb {
+    height: 220px;
+  }
+  
+  .item-title {
+    font-size: 1rem;
+  }
+  
+  .item-price {
+    font-size: 1.1rem;
+  }
+  
+  .post {
+    padding: 12px;
+  }
+  
+  .post-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    display: none;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 8px;
+  }
+  
+  .top-nav {
+    padding: 8px;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .logo-circle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .logo-f {
+    font-size: 1.6rem;
+  }
+  
+  .nav-center {
+    width: 100%;
+    justify-content: space-around;
+    order: 3;
+    padding: 8px 0;
+  }
+  
+  .nav-right {
+    width: 100%;
+    justify-content: space-around;
+    order: 2;
+    padding: 8px 0;
+  }
+  
+  .nav-icon {
+    font-size: 1.4rem;
+    padding: 4px 8px;
+  }
+  
+  .search {
+    width: 100%;
+    margin: 8px 0;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  
+  .photo-thumb {
+    height: 140px;
+  }
+  
+  .market-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0;
+  }
+  
+  .market-item {
+    padding: 10px;
+  }
+  
+  .item-thumb {
+    height: 220px;
+  }
+  
+  .item-title {
+    font-size: 1rem;
+    margin: 8px 0 4px;
+  }
+  
+  .item-price {
+    font-size: 1.1rem;
+  }
+  
+  .photos-section {
+    padding: 8px;
+  }
+  
+  .photos-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  
+  .post {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .post-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .post-info {
+    margin: 0;
+  }
+  
+  .post-author {
+    font-size: 0.95rem;
+  }
+  
+  .post-time {
+    font-size: 0.85rem;
+  }
+  
+  .post-content {
+    margin: 8px 0;
+    font-size: 0.95rem;
+  }
+  
+  .post-image {
+    margin-top: 8px;
+  }
+  
+  .post-stats {
+    padding: 6px 0;
+    font-size: 0.9rem;
+  }
+  
+  .post-interactions {
+    padding-top: 6px;
+    gap: 4px;
+  }
+  
+  .interaction-btn {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+  }
+  
+  .create-post {
+    margin-bottom: 16px;
+  }
+  
+  .post-input {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+  
+  .post-actions {
+    padding-top: 8px;
+    gap: 4px;
+  }
+  
+  .post-action-btn {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+  }
+  
+  .profile-thumb {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Fix for very small screens */
+@media (max-width: 360px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .photo-thumb {
+    height: 120px;
+  }
+  
+  .post-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .post-action-btn {
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+    padding: 6px 4px;
+    font-size: 0.85rem;
+  }
+  
+  .nav-icon {
+    font-size: 1.3rem;
+    padding: 4px 6px;
+  }
+  
+  .item-thumb {
+    height: 180px;
+  }
+}
+
+/* Profile Dropdown Styles */
+.profile-dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  min-width: 200px;
+  padding: 8px 0;
+  margin-top: 8px;
+  display: none;
+  z-index: 1000;
+}
+
+.profile-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: var(--facebook-dark);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background: var(--facebook-hover);
+}
+
+.dropdown-item i {
+  width: 20px;
+  text-align: center;
+  color: #65676b;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--facebook-border);
+  margin: 8px 0;
+}
+
+.logout {
+  color: #dc3545;
+}
+
+.logout i {
+  color: #dc3545;
+}
+
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 5px rgba(0,0,0,0.05);
+}
+
+.posts-section .post {
+  margin-bottom: 16px;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.posts-section .post:last-child {
+  margin-bottom: 0;
+}
+
+.posts-section .post-header,
+.posts-section .post-content,
+.posts-section .post-stats,
+.posts-section .post-interactions {
+  padding: 0 20px;
+}
+
+.posts-section .post-content {
+    padding-bottom: 12px;
+}
+
+.posts-section .post-stats {
+    padding-top: 12px;
+    margin-bottom: 8px;
+}
+
+.posts-section .post-interactions {
+    padding-top: 8px;
+}
+
+.friends-section {
+  /* Inherits padding and margin from .profile-section */
+}
+
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Responsive grid columns */
+  gap: 12px; /* Space between friend cards */
+  margin-top: 12px;
+}
+
+.friend-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start */
+  position: relative; /* Needed for positioning options icon */
+  border: 1px solid var(--facebook-border); /* Add a subtle border */
+}
+
+.friend-card-thumb {
+  width: 100%; /* Make image fill the card width */
+  height: 160px; /* Fixed height for consistent size */
+  object-fit: cover; /* Crop image to fit */
+  border-radius: 6px; /* Slightly smaller border-radius than card */
+  margin-bottom: 8px;
+}
+
+.friend-card-info {
+  flex-grow: 1; /* Allow info to take up remaining space */
+  margin-bottom: 8px;
+}
+
+.friend-name {
+  font-weight: 600;
+  color: var(--facebook-dark);
+  font-size: 1rem;
+}
+
+.mutual-friends {
+  font-size: 0.9rem;
+  color: #65676b;
+}
+
+.friend-options {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #65676b;
+  cursor: pointer;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

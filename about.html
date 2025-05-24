@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Facebook Lite Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script>
+    // Check if user is logged in
+    if (!localStorage.getItem('isLoggedIn')) {
+      window.location.href = 'login.html';
+    }
+  </script>
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="nav-left">
+      <div class="logo-circle">
+        <span class="logo-f">f</span>
+      </div>
+      <input type="text" class="search" placeholder="Search Facebook">
+    </div>
+    <div class="nav-center">
+      <a href="index.html" class="nav-icon-link"><span class="nav-icon" title="Home">
+        <!-- Home SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M25.825 12.29l-9.5-8.5a2 2 0 0 0-2.65 0l-9.5 8.5A2 2 0 0 0 4 15h1v7a2 2 0 0 0 2 2h4v-6h4v6h4a2 2 0 0 0 2-2v-7h1a2 2 0 0 0 1.825-2.71z" fill="#65676b"/></svg>
+      </span></a>
+      <span class="nav-icon" title="Video">
+        <!-- Video SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="7" width="16" height="14" rx="2" fill="#65676b"/><path d="M20 11l4 3v2l-4 3v-8z" fill="#65676b"/></svg>
+      </span>
+      <a href="marketplace.html" class="nav-icon-link"><span class="nav-icon" title="Marketplace">
+        <!-- Marketplace SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="10" width="20" height="10" rx="2" fill="#65676b"/><path d="M7 10V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3" stroke="#65676b" stroke-width="2"/></svg>
+      </span></a>
+      <span class="nav-icon" title="Groups">
+        <!-- Groups SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="9" cy="12" r="4" fill="#65676b"/><circle cx="19" cy="12" r="4" fill="#65676b"/><ellipse cx="9" cy="20" rx="7" ry="3" fill="#65676b"/></svg>
+      </span>
+    </div>
+    <div class="nav-right">
+      <span class="nav-icon" title="Messenger">
+        <!-- Messenger SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#65676b" stroke-width="2" fill="none"/><path d="M8 17l4-5 4 3 4-5" stroke="#65676b" stroke-width="2" fill="none"/></svg>
+      </span>
+      <span class="nav-icon" title="Notifications">
+        <!-- Notifications SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 24a3 3 0 0 0 3-3h-6a3 3 0 0 0 3 3zm7-7V12a7 7 0 1 0-14 0v5l-2 2v1h18v-1l-2-2z" fill="#65676b"/></svg>
+      </span>
+      <div class="profile-dropdown">
+        <img src="profile.jpg" alt="Profile" class="profile-thumb nav-profile-thumb">
+        <div class="dropdown-menu">
+          <a href="profile.html" class="dropdown-item">
+            <i class="fas fa-user"></i>
+            <span>Your Profile</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="login.html" class="dropdown-item logout" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Log Out</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <ul>
+      <li class="sidebar-profile">
+        <a href="profile.html">
+          <img src="profile.jpg" class="sidebar-profile-thumb">
+          <span>Michael Angelo Tamayo</span>
+        </a>
+      </li>
+      <li data-section="metaai"><span class="sidebar-icon">
+        <!-- Meta AI SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="14" rx="10" ry="10" fill="#8a3ffc"/><ellipse cx="14" cy="14" rx="6" ry="6" fill="#fff"/></svg>
+      </span> Meta AI</li>
+      <li data-section="friends"><span class="sidebar-icon">
+        <!-- Friends SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="10" cy="12" r="4" fill="#65676b"/><circle cx="18" cy="12" r="4" fill="#65676b"/><ellipse cx="10" cy="20" rx="7" ry="3" fill="#65676b"/></svg>
+      </span> Friends</li>
+      <li data-section="memories"><span class="sidebar-icon">
+        <!-- Memories SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#65676b" stroke-width="2" fill="none"/><path d="M14 8v6l4 2" stroke="#65676b" stroke-width="2" fill="none"/></svg>
+      </span> Memories</li>
+      <li data-section="saved"><span class="sidebar-icon">
+        <!-- Saved SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="7" y="5" width="14" height="18" rx="2" fill="#65676b"/><path d="M7 5l7 7 7-7" stroke="#fff" stroke-width="2" fill="none"/></svg>
+      </span> Saved</li>
+      <li data-section="groups"><span class="sidebar-icon">
+        <!-- Groups SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="9" cy="14" r="4" fill="#65676b"/><circle cx="19" cy="14" r="4" fill="#65676b"/><ellipse cx="14" cy="22" rx="9" ry="3" fill="#65676b"/></svg>
+      </span> Groups</li>
+      <li data-section="video"><span class="sidebar-icon">
+        <!-- Video SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="7" width="16" height="14" rx="2" fill="#65676b"/><path d="M20 11l4 3v2l-4 3v-8z" fill="#65676b"/></svg>
+      </span> Video</li>
+      <li><a href="marketplace.html" class="sidebar-link"><span class="sidebar-icon">
+        <!-- Marketplace SVG -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="10" width="20" height="10" rx="2" fill="#65676b"/><path d="M7 10V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3" stroke="#65676b" stroke-width="2"/></svg>
+      </span> Marketplace</a></li>
+      <li class="sidebar-seemore"><span class="sidebar-icon">
+
+    </ul>
+  </aside>
+  <main class="main-content">
+    <section id="profile" class="page-section">
+      <div class="cover-photo">
+        <img src="cover.jpg" alt="Cover Photo" class="cover-image">
+        <div class="cover-overlay">
+          <button class="cover-edit-btn">
+            <i class="fas fa-camera"></i>
+            <span>Edit Cover Photo</span>
+          </button>
+        </div>
+      </div>
+      <div class="profile-info">
+        <div class="profile-photo-container">
+          <img src="profile.jpg" class="profile-photo">
+          <div class="profile-photo-camera">
+            <i class="fas fa-camera"></i>
+          </div>
+        </div>
+        <div class="profile-text">
+          <h2>Michael Angelo Tamayo</h2>
+          <p>2k followers</p>
+        </div>
+      </div>
+
+      <!-- Profile Navigation -->
+      <nav class="profile-nav">
+        <ul>
+          <li><a href="profile.html" class="profile-nav-link">Posts</a></li>
+          <li><a href="#current" class="profile-nav-link">About</a></li>
+          <li><a href="friends.html" class="profile-nav-link">Friends</a></li>
+          <li><a href="photos.html" class="profile-nav-link">Photos</a></li>
+        </ul>
+      </nav>
+
+      <!-- About Section -->
+      <div class="profile-section about-section">
+        <h3>Intro</h3>
+        <ul>
+          <li><i class="fas fa-briefcase"></i> C.E.O at KrustyCrab</li>
+          <li>March 14, 2019 to present</li>
+          <li><i class="fas fa-plus-circle"></i> <a href="#">Add high school</a></li>
+          <li><i class="fas fa-plus-circle"></i> <a href="#">Add college</a></li>
+          <li><i class="fas fa-home"></i> Lives in New Corella, Davao</li>
+          <li><i class="fas fa-map-marker-alt"></i> From Tagum</li>
+          <li><i class="fas fa-heart"></i> Taken</li>
+          <li><i class="fas fa-mobile-alt"></i> 0948 762 3505 <span class="mobile-label">Mobile</span></li>
+        </ul>
+        <button class="btn-secondary">Edit Details</button>
+      </div>
+
+       <!-- Friends Preview -->
+       <div class="friends-preview">
+        <h3>Friends</h3>
+        <div class="friend-list">
+          <img src="jing.jpg" class="friend-thumb">
+          <img src="friend2.jpg" class="friend-thumb">
+          <img src="friend3.jpg" class="friend-thumb">
+        </div>
+      </div>
+
+      <!-- Photos Section -->
+      <div class="profile-section photos-section">
+        <h3>Photos</h3>
+        <div class="photo-grid">
+          <img src="photo1.jpg" alt="Photo 1" class="photo-thumb">
+          <img src="photo2.jpg" alt="Photo 2" class="photo-thumb">
+          <img src="photo3.jpg" alt="Photo 3" class="photo-thumb">
+          <img src="photo4.jpg" alt="Photo 4" class="photo-thumb">
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    // Highlight the active navigation link based on the current page
+    const profileNavLinks = document.querySelectorAll('.profile-nav-link');
+    const currentPagePath = window.location.pathname.split('/').pop(); // Get the current filename
+
+    profileNavLinks.forEach(link => {
+      // Remove active class from all links first
+      link.classList.remove('active');
+
+      // Check if the link's href matches the current page or is the About link on about.html
+      const linkHref = link.getAttribute('href').split('/').pop();
+
+      if (currentPagePath === 'about.html' && linkHref === '#current') {
+          link.classList.add('active');
+      } else if (linkHref === currentPagePath) {
+          link.classList.add('active');
+      }
+    });
+
+    // Add click event listener for dynamic highlighting (optional, keeps click highlighting)
+    profileNavLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        // Prevent default anchor behavior if it's a hash link
+        if (this.getAttribute('href') === '#current') {
+             event.preventDefault();
+        }
+
+        // Remove active class from all links
+        profileNavLinks.forEach(navLink => {
+          navLink.classList.remove('active');
+        });
+        // Add active class to the clicked link
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
